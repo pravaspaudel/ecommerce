@@ -12,10 +12,7 @@ const isAuthenticated = asyncHandler(
     if (!token) {
       throw new ErrorHandler("invalid token relogin", 401);
     }
-
     const decoded = jwt.verify(token, ENV.JWT_SECRET);
-
-    console.log("decoded one is", decoded);
 
     if (!decoded) {
       throw new ErrorHandler("invalid token relogin", 401);

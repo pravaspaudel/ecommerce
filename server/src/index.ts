@@ -4,6 +4,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import errorMiddleware from "./middlewares/error.middleware.ts";
 import authRouter from "./routes/auth.route.ts";
+import productRouter from "./routes/product.route.ts";
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/auth", authRouter);
+app.use("/api/", productRouter);
 
 app.use(errorMiddleware);
 

@@ -1,13 +1,7 @@
 import { ENV } from "./config/env.config.ts";
 import { prisma } from "./config/prisma.ts";
 import app from "./index.ts";
-import { v2 as cloudinary } from "cloudinary";
-
-cloudinary.config({
-  cloud_name: ENV.CLOUDINARY_CLOUD_NAME,
-  api_key: ENV.CLOUDINARY_CLIENT_API,
-  api_secret: ENV.CLOUDINARY_CLIENT_SECRET,
-});
+import cloudinary from "./config/cloudinary.config.ts";
 
 const startServer = async () => {
   try {
